@@ -41,7 +41,7 @@ Budget cap: **$1500** (purchased + donated parts; tools excluded). Track every p
 |---|---|---|
 | Ali Samara | | @asamara24 |
 
-_New members: add yourself here as your first PR (see `docs/onboarding.md`)._
+_New members: add yourself here as your first PR. Follow [`docs/first-pr.md`](docs/first-pr.md)._
 
 ## Board owners
 
@@ -64,6 +64,7 @@ Based on *PCB Design Control for Small Electrical Teams* (@Adhavaa). The seven e
 | Doc | What's in it |
 |---|---|
 | [`docs/onboarding.md`](docs/onboarding.md) | Install KiCad + Git, day-one checklist, access and backups |
+| [`docs/first-pr.md`](docs/first-pr.md) | Step-by-step: your first pull request with Git (add yourself to the Team table) |
 | [`docs/workflow.md`](docs/workflow.md) | Branch names, commit messages, daily loop, claiming files, merge conflicts, diffs, LFS |
 | [`docs/review.md`](docs/review.md) | Fab rules, ERC/DRC, schematic and layout checklists, required approvals |
 | [`docs/release.md`](docs/release.md) | Revisions and tags, pre-release checklist, release package, order records, ECO/ECN, changelog |
