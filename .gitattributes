@@ -1,0 +1,42 @@
+# Let Git detect other text files and normalise their line endings
+* text=auto
+
+# KiCad files are text. Store them with LF line endings on every OS
+# so diffs between Windows and Mac/Linux users stay clean
+*.kicad_pro text eol=lf
+*.kicad_sch text eol=lf
+*.kicad_pcb text eol=lf
+*.kicad_sym text eol=lf
+*.kicad_mod text eol=lf
+*.kicad_dru text eol=lf
+*.kicad_wks text eol=lf
+*.kicad_jobset text eol=lf
+sym-lib-table text eol=lf
+fp-lib-table text eol=lf
+
+# Scripts and CI files must keep LF, or bash fails on Windows checkouts
+*.sh text eol=lf
+*.yml text eol=lf
+
+# Never let Git silently auto-merge a schematic or a board.
+# merge=binary keeps your version and marks a conflict for a human.
+*.kicad_sch merge=binary
+*.kicad_pcb merge=binary
+
+# True binaries: no line-ending changes, no text diff, no text merge
+*.step binary
+*.stp binary
+*.wrl binary
+*.pdf binary
+*.png binary
+*.jpg binary
+*.zip binary
+*.docx binary
+*.pptx binary
+*.xlsx binary
+*.sldprt binary
+*.sldasm binary
+*.f3d binary
+
+# Git LFS rules are appended below by 'git lfs track', e.g.
+# mech/**/*.step filter=lfs diff=lfs merge=lfs -text

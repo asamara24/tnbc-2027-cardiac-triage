@@ -1,0 +1,57 @@
+# ===== KiCad backups, autosave and caches =====
+# Zip backups KiCad writes on save (project backup setting)
+*-backups/
+# Autosave files written while you work
+_autosave-*
+\#auto_saved_files\#
+# One-step backup copies of schematic and board
+*.kicad_sch-bak
+*.kicad_pcb-bak
+*-bak
+*.bak
+# Lock files KiCad creates while a file is open
+~*.lck
+# Footprint info cache, rebuilt automatically
+fp-info-cache
+# KiCad's local Git-based history folder (KiCad 9 and later)
+.history/
+# Per-user view state: visible layers, open sheets, zoom
+*.kicad_prl
+
+# ===== Generated manufacturing outputs =====
+# Local build folder (CI builds the real release package)
+out/
+# Output folder of the Fabrication Toolkit plugin
+production/
+# Safety net in case someone plots next to the project
+*.gbr
+*.gbrjob
+*.drl
+*.pos
+# ERC/DRC reports (CI keeps these as build artifacts)
+*.rpt
+# BOM exports and zips KiCad drops next to the project
+hardware/**/*.csv
+hardware/**/*.xml
+hardware/**/*.zip
+# Netlist and autorouter exchange files
+*.net
+*.dsn
+*.ses
+
+# ===== Firmware / software build output =====
+.pio/
+build/
+__pycache__/
+*.pyc
+.venv/
+.vscode/
+node_modules/
+
+# ===== Office lock files =====
+~$*
+
+# ===== Operating system clutter =====
+.DS_Store
+Thumbs.db
+desktop.ini
