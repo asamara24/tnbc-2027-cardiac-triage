@@ -1,5 +1,7 @@
 # Docs
 
+Team process docs: [onboarding](onboarding.md) · [workflow](workflow.md) · [review](review.md) · [release & ECO](release.md) · [recovery](recovery.md) · [practice exercise](practice-exercise.md) · [cheat sheet](cheat-sheet.md). Templates for new boards and orders are in [`templates/`](templates/).
+
 | Folder | What goes here |
 |---|---|
 | `report/` | Design report (due Feb 5, 2027): max 10 pages excl. title, exec summary, TOC, refs, appendices; 12 pt, double-spaced; IEEE references; must cite at least one Boston Scientific technology in Prior Art |

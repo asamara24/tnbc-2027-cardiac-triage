@@ -19,3 +19,7 @@ Enter these in KiCad **File → Board Setup before layout starts**. Design to th
 | Minimum slot / NPTH size | Design Rules → Constraints, or Custom Rules | | | |
 | Special features (castellated, via-in-pad, impedance) | Custom Rules + order options | | | |
 | Board size limits, panelisation | Not a KiCad rule: check before ordering | | | |
+
+No numbers are pre-filled on purpose: fab capabilities change and differ by layer count, copper weight and price tier. Take them from JLCPCB "PCB Capabilities" and PCBWay "PCB Capabilities" on the day you check, and write the date.
+
+**Recommended:** once filled, save an empty board with these settings as `fab/rules/two-layer-rules.kicad_pcb`. For each new board use Board Setup → Import Settings to copy them in.

@@ -1,0 +1,36 @@
+# .github/workflows/checks.yml
+# Runs ERC + DRC on every board for every pull request and every push to main.
+# After the first run, add "erc-drc" as a required status check on the main ruleset.
+name: checks
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  erc-drc:
+    runs-on: ubuntu-latest
+    container:
+      # Official KiCad image. Keep the major version the same as the team's KiCad.
+      image: kicad/kicad:10.0
+      # Run as root so the job can write reports into the checked-out folder.
+      options: --user root
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          lfs: false   # KiCad files are not in LFS; skipping LFS saves bandwidth quota
+
+      - name: ERC and DRC on every board
+        run: bash scripts/check-boards.sh
+
+      - name: Keep the reports (download them from the run's summary page)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: erc-drc-reports
+          path: out/reports/
+          if-no-files-found: ignore

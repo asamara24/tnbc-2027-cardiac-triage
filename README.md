@@ -32,7 +32,16 @@ Budget cap: **$1500** (purchased + donated parts; tools excluded). Track every p
 | `docs/dfmea/` | DFMEA (required by Rules §2.2) |
 | `docs/pitch/` | Business pitch deck and budget breakdown |
 | `docs/eco/`, `docs/reviews/` | Engineering change orders, review and bring-up notes |
-| `scripts/` | Build, check and release scripts |
+| `scripts/` | `check-boards.sh` (ERC/DRC) and `build-release.sh` (fab package) |
+| `docs/templates/` | Board README, FAB-NOTES, order record, library tables |
+
+## Team
+
+| Name | Role | GitHub |
+|---|---|---|
+| Ali Samara | | @asamara24 |
+
+_New members: add yourself here as your first PR (see `docs/onboarding.md`)._
 
 ## Board owners
 
@@ -40,25 +49,51 @@ Budget cap: **$1500** (purchased + donated parts; tools excluded). Track every p
 |---|---|---|---|
 | _(add when the first board is created)_ | | | |
 
-## How we work (from *PCB Design Control for Small Electrical Teams*)
+## How we work
+
+Based on *PCB Design Control for Small Electrical Teams* (@Adhavaa). The seven essentials:
 
 1. Everyone uses the **same major KiCad version (10.x)**.
-2. Nobody pushes to `main` directly. Branch → pull request → at least one approval.
-3. **One editor per file.** Claim the schematic or PCB in the team chat or on an issue before editing; release it when your PR merges.
-4. Every PR shows clean **ERC and DRC** before review.
-5. **Only order boards from a tag** (e.g. `triage-main-revA`). The fab zip is attached to that tag's GitHub Release.
+2. Nobody pushes to `main` directly. Branch → pull request → at least one approval from someone who isn't the author.
+3. **One editor per file.** Claim the schematic or PCB with a draft PR (plus a chat message) before editing.
+4. Every PR shows clean **ERC and DRC**. CI runs them automatically.
+5. **Only order boards from a tag** (e.g. `triage-main-revA`). CI builds the fab package and attaches it to that tag's GitHub Release.
 6. One line in `CHANGELOG.md` for every change that affects a board.
 7. After a revision is ordered, changes go through an **ECO** issue.
+
+| Doc | What's in it |
+|---|---|
+| [`docs/onboarding.md`](docs/onboarding.md) | Install KiCad + Git, day-one checklist, access and backups |
+| [`docs/workflow.md`](docs/workflow.md) | Branch names, commit messages, daily loop, claiming files, merge conflicts, diffs, LFS |
+| [`docs/review.md`](docs/review.md) | Fab rules, ERC/DRC, schematic and layout checklists, required approvals |
+| [`docs/release.md`](docs/release.md) | Revisions and tags, pre-release checklist, release package, order records, ECO/ECN, changelog |
+| [`docs/recovery.md`](docs/recovery.md) | Common mistakes and how to undo them |
+| [`docs/practice-exercise.md`](docs/practice-exercise.md) | 2–3 hour team dry run with a throwaway LED board |
+| [`docs/cheat-sheet.md`](docs/cheat-sheet.md) | One page to print |
+| [`lib/README.md`](lib/README.md) | Team library rules, required symbol fields, who approves parts |
+| [`mech/README.md`](mech/README.md) | Enclosure workflow and KiCad ↔ CAD exchange |
+
+## Automation
+
+| File | Runs | Does |
+|---|---|---|
+| `.github/workflows/checks.yml` | Every PR and push to `main` | `scripts/check-boards.sh`: ERC + DRC on every board in the KiCad 10 Docker image |
+| `.github/workflows/release.yml` | Every `*-rev*` tag | `scripts/build-release.sh`: revision check, ERC/DRC, Gerbers, drill, BOMs (JLCPCB + PCBWay), placement, PDFs, STEP, checksums → GitHub Release (`-rc` tags become pre-releases) |
 
 ## Getting started
 
 ```bash
-git clone <repo-url>
-cd <repo>
+git clone git@github.com:asamara24/tnbc-2027-cardiac-triage.git
+cd tnbc-2027-cardiac-triage
 git lfs install
 ```
 
-New KiCad project: File → New Project, save as `hardware/<board>/<board>.kicad_pro`. Link the team library with project-relative paths:
+New board:
 
-- Symbols: `${KIPRJMOD}/../../lib/symbols/team.kicad_sym`
-- Footprints: `${KIPRJMOD}/../../lib/footprints/team.pretty`
+```bash
+mkdir -p hardware/<board>
+cp docs/templates/sym-lib-table docs/templates/fp-lib-table docs/templates/FAB-NOTES.md hardware/<board>/
+cp docs/templates/board-README.md hardware/<board>/README.md
+```
+
+Then in KiCad: File → New Project, save as `hardware/<board>/<board>.kicad_pro`, and add the text variable `BOARD_REV = A` (Schematic Setup → Project → Text Variables).
