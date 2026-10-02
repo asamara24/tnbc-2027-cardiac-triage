@@ -45,7 +45,7 @@ GitHub Desktop and KiCad's own Version Control menu are fine once the basics wor
 5. Open each `hardware/<board>/<board>.kicad_pro`. Confirm no missing-library warnings, the `team` libraries appear in the choosers, and the 3D viewer shows every part.
 6. Run the checks locally: `bash scripts/check-boards.sh` (macOS/Windows: set `KICAD_CLI` first).
 7. Read the root README, `docs/workflow.md` and `docs/review.md`.
-8. First PR on a harmless file: add your name and role to the team table in `README.md` on branch `docs/add-<yourname>`. Get it reviewed and merged.
+8. First PR on a harmless file: add your name and role to the team table in `README.md` on branch `docs/add-<yourname>`. Get it reviewed and merged. Step-by-step commands: [`first-pr.md`](first-pr.md).
 9. Find out who owns which board (each `hardware/<board>/README.md`) and how files are claimed.
 10. Do the practice exercise (`docs/practice-exercise.md`) or pair with a buddy on your first real change.
 

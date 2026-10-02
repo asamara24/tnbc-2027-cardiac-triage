@@ -1,6 +1,6 @@
 # Docs
 
-Team process docs: [onboarding](onboarding.md) · [workflow](workflow.md) · [review](review.md) · [release & ECO](release.md) · [recovery](recovery.md) · [practice exercise](practice-exercise.md) · [cheat sheet](cheat-sheet.md). Templates for new boards and orders are in [`templates/`](templates/).
+Team process docs: [onboarding](onboarding.md) · [first PR](first-pr.md) · [workflow](workflow.md) · [review](review.md) · [release & ECO](release.md) · [recovery](recovery.md) · [practice exercise](practice-exercise.md) · [cheat sheet](cheat-sheet.md). Templates for new boards and orders are in [`templates/`](templates/).
 
 | Folder | What goes here |
 |---|---|
