@@ -10,5 +10,6 @@ Team process docs: [onboarding](onboarding.md) · [first PR](first-pr.md) · [wo
 | `eco/` | ECO records, if not kept only as issues |
 | `reviews/` | Design review notes, bring-up and test reports, accuracy validation vs clinical-grade instruments |
 | `datasheets.md` | Datasheet links (links, not PDFs) |
+| `design-control/` | Fill-in templates for each design-control stage, from user needs to validation, plus the DFMEA and traceability matrix. Start at [`design-control/README.md`](design-control/README.md) |
 
 Standards to reference: Health Canada non-invasive Class II requirements, FDA Class II guidance, ISO 80601-2-61 (pulse oximeters), IEC 80601-2-30 (automated NIBP), IEC 60601-1 (general safety), ISO 10993 (biocompatibility), ISO 14971 (risk management), IEC 62366-1 (usability).
