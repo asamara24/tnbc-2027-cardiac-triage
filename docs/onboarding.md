@@ -38,10 +38,10 @@ GitHub Desktop and KiCad's own Version Control menu are fine once the basics wor
 
 ## 2. Day-one checklist
 
-1. Accept the collaborator invite to `asamara24/tnbc-2027-cardiac-triage` and **turn on two-factor authentication**.
+1. Accept the invite to the `tnbc-2027-team` GitHub organization (email, or github.com/orgs/tnbc-2027-team/invitation) and **turn on two-factor authentication**.
 2. Install KiCad 10.x, Git and Git LFS; run `git lfs install`.
 3. Set `user.name` / `user.email`; set up SSH or Credential Manager.
-4. Clone: `git clone git@github.com:asamara24/tnbc-2027-cardiac-triage.git`
+4. Clone: `git clone https://github.com/tnbc-2027-team/tnbc-2027-cardiac-triage.git`
 5. Open each `hardware/<board>/<board>.kicad_pro`. Confirm no missing-library warnings, the `team` libraries appear in the choosers, and the 3D viewer shows every part.
 6. Run the checks locally: `bash scripts/check-boards.sh` (macOS/Windows: set `KICAD_CLI` first).
 7. Read the root README, `docs/workflow.md` and `docs/review.md`.
@@ -53,7 +53,8 @@ GitHub Desktop and KiCad's own Version Control menu are fine once the basics wor
 
 | Role | GitHub | Who |
 |---|---|---|
-| Owner | Repo owner (asamara24) + 1 backup admin | 2 leads |
+| Owner | Org owner of `tnbc-2027-team` (asamara24) + 1 backup owner | 2 leads |
+| Admin | Admin, via the `@tnbc-2027-team/leads` team | All leads |
 | Maintainer | Maintain | Board owners, library owners |
 | Designer | Write | Everyone doing schematic, layout, firmware |
 | Viewer | Read (public repo: anyone) | Advisors, mentors |
@@ -61,12 +62,12 @@ GitHub Desktop and KiCad's own Version Control menu are fine once the basics wor
 - **Two owners, never one**, so nobody is locked out.
 - **No secrets in the repo**: no passwords, API keys or tokens. CI gets them from GitHub's encrypted secrets.
 - **Fab accounts:** order from a team account on a team email, password in a shared password manager.
-- **Offboarding:** remove the person from the repo, revoke any tokens/deploy keys they set up, change the fab account password.
+- **Offboarding:** remove the person from the org (and its teams), revoke any tokens/deploy keys they set up, change the fab account password.
 - **Push daily.** Keep KiCad's own project backups on (zip files in `<project>-backups/`, ignored by Git).
 - **Release zips** also go to the shared drive next to the order record.
 - **Weekly mirror** (a lead runs it):
   ```bash
-  git clone --mirror git@github.com:asamara24/tnbc-2027-cardiac-triage.git tnbc-mirror.git   # first time
+  git clone --mirror https://github.com/tnbc-2027-team/tnbc-2027-cardiac-triage.git tnbc-mirror.git   # first time
   cd tnbc-mirror.git && git remote update --prune                                              # every week
   ```
   Copy the mirror folder to a drive the team controls. `git clone tnbc-mirror.git` restores a normal repo.
