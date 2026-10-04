@@ -6,8 +6,8 @@ Steps 1–4 are one-time setup. Steps 5–8 are the loop.
 
 ## 1. Accept the invite
 
-Ask Ali to add your GitHub username as a collaborator. Accept from the email, or at
-**github.com/asamara24/tnbc-2027-cardiac-triage/invitations**.
+Ask Ali to invite your GitHub username to the `tnbc-2027-team` organization. Accept from the email, or at
+**github.com/orgs/tnbc-2027-team/invitation**.
 
 ## 2. Install Git and the GitHub CLI
 
@@ -36,7 +36,7 @@ gh auth login
 
 ```bash
 cd ~/Documents          # or wherever you keep projects
-git clone https://github.com/asamara24/tnbc-2027-cardiac-triage.git
+git clone https://github.com/tnbc-2027-team/tnbc-2027-cardiac-triage.git
 cd tnbc-2027-cardiac-triage
 ```
 

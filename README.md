@@ -86,7 +86,7 @@ Based on *PCB Design Control for Small Electrical Teams* (@Adhavaa). The seven e
 ## Getting started
 
 ```bash
-git clone git@github.com:asamara24/tnbc-2027-cardiac-triage.git
+git clone https://github.com/tnbc-2027-team/tnbc-2027-cardiac-triage.git
 cd tnbc-2027-cardiac-triage
 git lfs install
 ```
