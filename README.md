@@ -34,6 +34,7 @@ Budget cap: **$1500** (purchased + donated parts; tools excluded). Track every p
 | `docs/eco/`, `docs/reviews/` | Engineering change orders, review and bring-up notes |
 | `scripts/` | `check-boards.sh` (ERC/DRC) and `build-release.sh` (fab package) |
 | `docs/templates/` | Board README, FAB-NOTES, order record, library tables |
+| `docs/design-control/` | Fill-in templates for each design-control stage: user needs, design inputs, verification, validation, DFMEA, traceability |
 
 ## Team
 
