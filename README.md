@@ -40,6 +40,7 @@ Budget cap: **$1500** (purchased + donated parts; tools excluded). Track every p
 | Name | Role | GitHub |
 |---|---|---|
 | Ali Samara | | @asamara24 |
+| Adhavaa | | @AdhavaaChakravarthi |
 
 _New members: add yourself here as your first PR. Follow [`docs/first-pr.md`](docs/first-pr.md)._
 
